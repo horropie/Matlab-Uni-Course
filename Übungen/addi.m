@@ -1,0 +1,1 @@
+function summe = addi(s1,s2)
