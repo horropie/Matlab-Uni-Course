@@ -1,4 +1,4 @@
-function [xwerte, ableitung] = diffquot(fhandle,a,h,b)
+function [xwerte, Ableitung] = diffquot(fhandle,a,h,b)
 % fhandle: Funktionshandle zur analytischen Funktion welche abgeleitet werden soll
 % a,b: untere und obere Intervallgrenzen
 % h: Schrittweite der Differentiation
@@ -8,9 +8,11 @@ function [xwerte, ableitung] = diffquot(fhandle,a,h,b)
 xwerte = a:h:b
 
 ywerte1=fhandle(xwerte);
-%ywerte2=fhandle(xwerte+h);
-%diff=(ywerte2-ywerte1)/h
+ywerte2=fhandle(xwerte+h);
+Ableitung=(ywerte2-ywerte1)/h;   
 
-ywerte1
-%plot(xwerte, Ableitung)
+
+%ywerte1
+Ableitung
+plot(xwerte, Ableitung);
 
