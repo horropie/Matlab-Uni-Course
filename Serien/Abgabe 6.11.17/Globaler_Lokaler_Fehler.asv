@@ -22,12 +22,13 @@ figure(1)
 plot(0:0.01:3, fehlerh);
 
 %cosmetics
-xlabel('h');
-ylabel('Fehler');
+xlabel('Schrittweite h');
+ylabel('$Gesamtfehler \varDelta(h)$');
+
 %xticks([-3*pi -2*pi -pi 0 pi 2*pi 3*pi]);
 %xticklabels({'-3\pi','-2\pi','-\pi','0','\pi','2\pi','3\pi'});
 %ax.XTick=0:pi/4:pi
-set(gca, 'XTick', [0 pi/4 pi/2 3/4*pi pi], 'XTickLabel',{0,'\pi/4','-\pi/2','\pi/2'});
+%set(gca, 'XTick', [0 0.5 pi/4 1 1.5 pi/2 2 3/4*pi 2.5 3 pi], 'XTickLabel',{0,'0.5','\pi/4','1','1.5','\pi/2','2','3/4\pi','2.5','3'});
 
 
 
@@ -36,13 +37,19 @@ set(gca, 'XTick', [0 pi/4 pi/2 3/4*pi pi], 'XTickLabel',{0,'\pi/4','-\pi/2','\pi
 
 figure(2)
 
-for h = 0:1:3
-    
+legendInfo=[];
+
+for h = 1:1:3
+   
 [xwerte, ableitung] = diffquot(fhandle, -50, 50, h);
 
 ablsin = @(x)cos(x);
 
 fehlerlok = ablsin(xwerte) - ableitung;
+
+%Array für Legende
+legendInfo{h}=['h = ' num2str(h)]
+
 
 %für selben canvas
 hold on
@@ -50,9 +57,14 @@ hold on
 plot(xwerte, fehlerlok);
 
 %cosmetics
-xlabel('h');
-ylabel('Fehler');
+xlabel('x');
+ylabel('$lokaler Fehler \E_h$');
 
 k = k + 1;
 
 end
+
+legend(legendInfo)
+
+%Testoutput Legendarray
+legendInfo
