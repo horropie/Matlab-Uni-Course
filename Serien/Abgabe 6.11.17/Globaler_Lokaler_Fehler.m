@@ -36,7 +36,7 @@ ylabel('Fehler');
 
 figure(2)
 legendInfo=[];
-for h = 0:1:3
+for h = 1:1:3
    
 [xwerte, ableitung] = diffquot(fhandle, -50, 50, h);
 
@@ -45,7 +45,7 @@ ablsin = @(x)cos(x);
 fehlerlok = ablsin(xwerte) - ableitung;
 
 %Array für Legende
-legendInfo{h+1}=['h = ' num2str(h)]
+legendInfo{h}=['h = ' num2str(h)]
 
 
 %für selben canvas
@@ -61,5 +61,7 @@ k = k + 1;
 
 end
 
-%Test 
+legend(legendInfo)
+
+%Testoutput Legendarray
 legendInfo
