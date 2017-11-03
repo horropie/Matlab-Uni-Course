@@ -20,6 +20,6 @@ xwerte
 ableitung
 
 %plot
-plot(xwerte, ableitung);
+%plot(xwerte, ableitung);
 
 
