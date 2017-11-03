@@ -7,7 +7,7 @@ function [xwerte, ableitung] = diffquot(fhandle,a,b,h)
 
 %Definiere das X-Intervall und die Feinheit für den Input 
 %Gefordertes Intervall 'xwerte'
-xwerte = a:h:b
+xwerte = a:h:b;
 
 %Konstruktion des Differenzenquotienten mithilfe von fhandle
 %Gefordertes Intervall 'ableitung'

@@ -48,7 +48,7 @@ ablsin = @(x)cos(x);
 fehlerlok = ablsin(xwerte) - ableitung;
 
 %Array für Legende
-legendInfo{h}=['$h$ = ' num2str(h)]
+legendInfo{h}=['$h$ = ' num2str(h)];
 
 
 %für selben canvas
@@ -65,4 +65,4 @@ k = k + 1;
 end
 
 %Auswerten Legendenarray
-legend(legendInfo,'interpreter','latex')
+legend(legendInfo,'interpreter','latex');
