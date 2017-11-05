@@ -25,12 +25,6 @@ plot(0:0.01:3, fehlerh);
 xlabel('Schrittweite $h$', 'interpreter','latex');
 ylabel('Gesamtfehler $\Delta(h)$','interpreter','latex');
 
-%xticks([-3*pi -2*pi -pi 0 pi 2*pi 3*pi]);
-%xticklabels({'-3\pi','-2\pi','-\pi','0','\pi','2\pi','3\pi'});
-%ax.XTick=0:pi/4:pi
-%set(gca, 'XTick', [0 0.5 pi/4 1 1.5 pi/2 2 3/4*pi 2.5 3 pi], 'XTickLabel',{0,'0.5','\pi/4','1','1.5','\pi/2','2','3/4\pi','2.5','3'});
-
-
 
 %% Lokaler Fehlerplot
 %Lokaler Fehler für h=[0,3] in x=[-50,50]
