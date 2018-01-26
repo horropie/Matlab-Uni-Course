@@ -14,26 +14,21 @@ function [x v t] = alpha_osci(x0, v0, w, alpha,N, T)
 
 delt = T / N ;
 
+%Gegebene Matritzen, Mittels finiter Differenzen gewonnene Vorschrift
 A = inv([1 , -(1-alpha) * w * (delt) ; (1-alpha) * w * (delt) , 1]);
 B = [1 , alpha * w * (delt) ; -alpha * w * (delt) , 1];
 
 C = [x0;v0];
 
+%Loop für die Implizite Rechenvorschrift
 for counter = 1:N
-    C(:,counter+1) = A*B*C(:,counter);
+    C(:,counter+1) = A*B*C(:,counter); 
 end
 
+%Zuweisung der Ergebnisse des Loops
 x = C(1,:);
 v = C(2,:);
 t = [0:N] * delt;
 
 
-%figure(1)
 
-%plot(transpose(C))
-
-%figure(2)
-%plot(t,x)
-
-%figure(3)
-%plot(x,v)
